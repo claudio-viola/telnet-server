@@ -1,0 +1,30 @@
+{
+ "check-coverage": false,
+ "per-file": true,
+ "lines": 99,
+ "statements": 99,
+ "functions": 99,
+ "branches": 99,
+ "include": [
+   "src/**/*.ts",
+   "src/**/*.tsx"
+ ],
+ "exclude": [
+ ],
+ "extension": [
+   ".ts",
+   ".tsx"
+ ],
+ "require": [
+   "ts-node/register",
+   "tsconfig-paths/register"
+ ],
+ "reporter": [
+   "text",
+   "html"
+ ],
+ "sourceMap": true,
+ "instrument": true,
+ "report-dir": "./coverage_integration"
+
+}

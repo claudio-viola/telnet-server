@@ -1,0 +1,344 @@
+---
+extends:
+- tslint-config-standard
+- tslint-clean-code
+- tslint-sonarts
+- tslint-consistent-codestyle
+- tslint-plugin-ikatyang
+- tslint-microsoft-contrib/recommended
+- tslint-immutable
+rules:
+  #https://github.com/Microsoft/tslint-microsoft-contrib
+  no-relative-imports: false
+  semicolon:
+    - true
+    - always
+  #https://palantir.github.io/tslint/rules/no-invalid-template-strings/
+  no-invalid-template-strings: true
+  #https://palantir.github.io/tslint/rules/arrow-return-shorthand/
+  arrow-return-shorthand:
+    - true
+    - multiline
+  #https://palantir.github.io/tslint/rules/comment-format/
+  comment-format:
+    - true
+    - check-space
+  #https://palantir.github.io/tslint/rules/newline-before-return/
+  newline-before-return: true
+  #https://palantir.github.io/tslint/rules/no-parameter-reassignment/
+  no-parameter-reassignment: true
+
+  #quotemark - Requires single or double quotes for string literals.
+  quotemark:
+  - true
+  - single
+  #indent - Enforces indentation with tabs or spaces.
+  indent:
+  - true
+  - spaces
+  #no-any - Disallows usages of any as a type declaration.
+  no-any: false
+  #no-var-requires - Disallows the use of require statements except in import statements.
+  no-var-requires: true
+  #variable-name - Checks variable names for various errors.
+  variable-name:
+  - true
+  - ban-keywords
+  - check-format
+  - allow-snake-case
+  #switch-default - Require a default case in all switch statements.
+  switch-default:
+  - true
+  #object-literal-key-quotes - Enforces consistent object literal property quote style.
+  object-literal-key-quotes:
+  - false
+  #align - Enforces vertical alignment.
+  align:
+  - false
+  #member-access - Requires explicit visibility declarations for class members.
+  member-access:
+  - false
+  #no-implicit-dependencies - Disallows importing modules that are not listed as dependency in the project’s package.json
+  no-implicit-dependencies:
+  - false
+  #no-shadowed-variable - Disallows shadowing variable declarations.
+  no-shadowed-variable:
+    severity: warning
+  #no-submodule-imports - Disallows importing any submodule.
+  no-submodule-imports: false
+  #no-console - Bans the use of specified console methods.
+  no-console: true
+  #max-line-length - Requires lines to be under a certain max length.
+  max-line-length:
+  - true
+  - limit: 123
+    ignore-pattern: "^import"
+  #prefer-for-of - Recommends a ‘for-of’ loop over a standard ‘for’ loop if the index is only used to access the array being iterated.
+  prefer-for-of: true
+  #Requires any function or method that returns a promise to be marked async.
+  promise-function-async: true
+  #typedef - Requires type definitions to exist.
+  # typedef:
+  # - true
+  # - call-signature
+  # - arrow-call-signature
+  # - parameter
+  # - arrow-parameter
+  # - property-declaration
+  # - variable-declaration
+  # - member-variable-declaration
+  # - object-destructuring
+  # - array-destructuring
+  #unified-signature Warns for any two overloads that could be unified into one by using a union or an optional/rest parameter.
+  unified-signatures: true
+  #await-promise - Warns for an awaited value that is not a Promise.
+  await-promise:
+    - true
+    - Bluebird
+  #curly - Enforces braces for if/for/do/while statements.
+  curly: true
+  #Disallows any type of assignment in conditionals.
+  no-conditional-assignment: true
+  #disallow double-negation boolean casts in a boolean context (recommended)
+  no-extra-boolean-cast: true
+  #no-duplicate-variable - Disallows duplicate variable declarations in the same block scope.
+  no-duplicate-variable: true
+  #no-dynamic-delete - Bans usage of the delete operator with computed key expressions.
+  no-dynamic-delete: true
+  #no-empty - Disallows empty blocks.
+  no-empty: true
+  #no-for-in-array Disallows iterating over an array with a for-in loop.
+  no-for-in-array: true
+  #no-object-literal-type-assertion - Forbids an object literal to appear in a type assertion expression. Casting to any is still allowed.
+  no-object-literal-type-assertion: true
+  #no-return-await - Disallows unnecessary return await
+  no-return-await: true
+  #no-string-throw - Flags throwing plain strings or concatenations of strings.
+  no-string-throw: true
+  #no-floating-promises - Promises returned by functions must be handled appropriately.
+  no-floating-promises: true
+  #no-unused-expression - Disallows unused expression statements.
+  no-unused-expression: true
+  #no-unused-variable - Disallows unused imports, variables, functions and private class members. Similar to tsc’s –noUnusedParameters and –noUnusedLocals options, but does not interrupt code compilation.
+  no-unused-variable: false
+  no-unused: true # Doing the same thing as no-unused-variable but without any side-effects.
+  #no-var-keyword - Disallows usage of the var keyword.
+  no-var-keyword: true
+  #triple-equals - Requires === and !== in place of == and !=.
+  triple-equals:
+  - true
+  - allow-null-check
+  - allow-undefined-check
+  #cyclomatic-complexity - Enforces a threshold of cyclomatic complexity.
+  cyclomatic-complexity:
+  - true
+  - 10
+  #deprecation - Warns when deprecated APIs are used.
+  deprecation: true
+  #max-file-line-count Requires files to remain under a certain number of lines
+  max-file-line-count:
+  - true
+  - 1000
+  #no-duplicate-imports - Disallows multiple import statements from the same module.
+  no-duplicate-imports: true
+  #Disallows explicit type declarations for variables or parameters initialized to a number, string, or boolean.
+  no-inferrable-types: false
+  #object-literal-sort-keys - Checks ordering of keys in object literals. When using the default alphabetical ordering, additional blank lines may be used to group object properties together while keeping the elements within each group in alphabetical order.
+  object-literal-sort-keys: true
+  #prefer-const - Requires that variable declarations use const instead of let and var if possible.
+  prefer-const: true
+  #class-name - Enforces PascalCased class and interface names.
+  class-name: true
+  #file-name-casing - Enforces a consistent file naming convention
+  #does not seem to be working TODO https://github.com/ikatyang/tslint-plugin-ikatyang
+  #file-name-casing:
+  #- true
+  #- snake-case
+  #interface-name - Requires interface names to begin with a capital ‘I’
+  interface-name: false
+  #jsdoc-format - Enforces basic format rules for JSDoc comments.
+  jsdoc-format: true
+  #completed-docs - Enforces JSDoc comments for important items be filled out.
+  completed-docs:
+  - true
+  - enums
+  - functions
+  - methods
+  #ordered-imports - Requires that import statements be alphabetized and grouped.
+  ordered-imports: true
+  #space-before-function-paren - Require or disallow a space before function parenthesis
+  space-before-function-paren: true
+  #whitespace - Enforces whitespace style conventions.
+  whitespace:
+  - true
+  - check-branch
+  - check-decl
+  - check-operator
+  - check-module
+  - check-separator
+  - check-rest-spread
+  - check-type
+  - check-typecast
+  - check-type-operator
+  - check-preblock
+  #prefer-template - Prefer a template expression over string literal concatenation.
+  prefer-template: true
+  #prefer-conditional-expression - Recommends to use a conditional expression instead of assigning to the same thing in each branch of an if statement.
+  prefer-conditional-expression: true
+
+  #tslint clean code rules https://github.com/Glavin001/tslint-clean-code/
+  #We would like a source file to be like a newspaper article. Detail should increase as we move downward, until at the end we find the lowest level functions and details in the source file.
+  newspaper-order: true
+  #Try-catch blocks must be first within the scope. Try-catch blocks are transactions and should leave your program in a consistent state, no matter what happens in the try.
+  try-catch-first: true
+  #Limit the number of input arguments for a function. The ideal number of arguments for a function is zero (niladic).
+  max-func-args: 4
+  #Functions should only do one thing, therefore passing a boolean into a function is a bad practice. The function does one thing if the flag is true and another if the flag is false!
+  no-flag-args: true
+  #Code must not be commented out.
+  no-commented-out-code: true
+  #Don't-Repeat-Yourself in if statement conditionals, instead use Switch statements.
+  prefer-dry-conditionals: true
+  #tslint-clean-code rules https://github.com/Glavin001/tslint-clean-code/
+  prefer-array-literal: false
+
+  #https://github.com/ajafff/tslint-consistent-codestyle rules
+  naming-convention:
+  - true
+  - type: function
+    format:
+    - camelCase
+  - type: type
+    format:
+    - PascalCase
+  # - type: variable
+  #   modifiers:
+  #   - export
+  #   - const
+  #   format:
+  #   - UPPER_CASE
+  #no-unnecessary-else Like no-else-after-return but better.
+  no-unnecessary-else: true
+  #Identifies nested if statements that can be combined into one.
+  no-collapsible-if: true
+  #Just return; instead of return undefined;.
+  no-return-undefined: true
+  #https://github.com/ajafff/tslint-consistent-codestyle rules END
+
+  #tslint sonarts rules https://github.com/SonarSource/SonarTS
+  #Logical OR should not be used in switch cases
+  no-case-with-or: true
+  #Collection sizes and array length comparisons should make sense
+  no-collection-size-mischeck: true
+  #Destructuring patterns should not be empty
+  no-empty-destructuring: true
+  #Function parameters, caught exceptions and foreach variables' initial values should not be ignored
+  no-ignored-initial-value: true
+  #Return values should not be ignored when function calls don't have any side effects
+  no-ignored-return: true
+  #"in" operator should not be used on array
+  no-in-misuse: true
+  #Non-existent operators '=+', '=-' and '=!' should not be used
+  no-misspelled-operator: true
+  #Errors should not be created without being thrown
+  no-unthrown-error: true
+  #The output of functions that don't return anything should not be used
+  no-use-of-empty-return-value: true
+  #The Cyclomatic Complexity of functions should not exceed a defined threshold. Complex code may perform poorly and can be difficult to test thoroughly.
+  mccabe-complexity: true
+  #Functions should not have too many lines of code
+  no-big-function:
+   - true
+   - 100
+  #Dead stores should be removed
+  no-dead-store: true
+  #String literals should not be duplicated
+  no-duplicate-string: true
+  #Nested blocks of code should not be left empty
+  no-empty-nested-blocks: true
+  #Extra semicolons should be removed
+  no-extra-semicolon: true
+  # Conditions should not always evaluate to "true" or to "false"
+  no-gratuitous-expressions: true
+  #Credentials should not be hard-coded
+  no-hardcoded-credentials: true
+  #Functions should not have identical implementations
+  no-identical-functions: true
+  #TODO enable when sonarts is released again
+  #"await" should only be used with promises
+  #no-invalid-await: true
+  #Multiline string literals should not be used
+  no-multiline-string-literals: true
+  #Template literals should not be nested
+  no-nested-template-literals: true
+  #Redundant pairs of parentheses should be removed
+  no-redundant-parentheses: true
+  #Statements should be on separate lines
+  no-statements-same-line: true
+  #"undefined" should not be passed as the value of optional parameters (no
+  no-undefined-argument: true
+  #Redundant casts and not-null assertions should be avoided
+  no-useless-cast: true
+  #Local variables should not be declared and then immediately returned or thrown
+  prefer-immediate-return: true
+  #Shorthand promises should be used
+  prefer-promise-shorthand: true
+  #Type aliases should be used
+  use-type-alias: true
+  #tslint sonarts rules https://github.com/SonarSource/SonarTS END
+
+
+  #tslint-plugin-ikatyang rule
+  filename-convention:
+   - true
+   - namingStyle: snake_case
+  #tslint-plugin-ikatyang rule END
+  #https://github.com/Microsoft/tslint-microsoft-contrib
+  export-name: false
+
+  #The name of the imported module must match the name of the thing being imported. For example, it is valid to name imported modules the same as the module name: import Service = require('x/y/z/Service') and import Service from 'x/y/z/Service'. But it is invalid to change the name being imported, such as: import MyCoolService = require('x/y/z/Service') and import MyCoolService from 'x/y/z/Service'. Since version 2.0.9 it is possible to configure this rule with a list of exceptions. For example, to allow underscore to be imported as _, add this configuration: 'import-name': [ true, { 'underscore': '_' }]
+  import-name: true
+  #Avoid long functions. The line count of a function body must not exceed the value configured within this rule's options.
+  #You can setup a general max function body length applied for every function/method/arrow function e.g. [true, 30] or set different maximum length for every type e.g. [true, { "func-body-length": 10 , "func-expression-body-length": 10 , "arrow-body-length": 5, "method-body-length": 15, "ctor-body-length": 5 }]. To specify a function name whose parameters you can ignore for this rule, pass a regular expression as a string(this can be useful for Mocha users to ignore the describe() function). #Since version 2.0.9, you can also ignore single- and multi-line comments from the total function length, eg. [true, { "ignore-comments": true }]
+  max-func-body-length:
+    - true
+    - 50
+  #Do not invoke Mocha's describe.only, it.only or context.only functions. These functions are useful ways to run a single unit test or a single test case during your build, but please be careful to not push these methods calls to your version control repositiory because it will turn off any of the other tests.
+  mocha-avoid-only: true
+  #Do not use suspicious comments, such as BUG, HACK, FIXME, LATER, LATER2, TODO. We recommend that you run this rule before each release as a quality checkpoint. Reference: CWE-546 Suspicious Comment
+  no-suspicious-comment: true
+  #Do not use the idiom typeof x === 'undefined'. You can safely use the simpler x === undefined or perhaps x == null if you want to check for either null or undefined.
+  no-typeof-undefined: true
+  #Avoid timing attacks by not making direct string comparisons to sensitive data. Do not compare against variables named password, secret, api, apiKey, token, auth, pass, or hash. For more info see Using Node.js Event Loop for Timing Attacks
+  possible-timing-attack: true
+  #When a Promise instance is created, then either the reject() or resolve() parameter must be called on it within all code branches in the scope. For more examples see the feature request.
+  #This rule has some overlap with the tslint no-floating-promises rule, but they are substantially different.
+  promise-must-complete: true
+  #https://github.com/Microsoft/tslint-microsoft-contrib END
+
+
+  #https://github.com/jonaskello/tslint-immutable#no-this-no-class
+  no-this: true
+  #https://github.com/jonaskello/tslint-immutable#no-this-no-class
+  no-class: false
+  #https://github.com/jonaskello/tslint-immutable#no-loop-statement
+  no-loop-statement: false
+  no-backbone-get-set-outside-model: false
+  chai-vague-errors: false
+  #https://palantir.github.io/tslint/rules/trailing-comma/
+  trailing-comma:
+    - true
+    - multiline: always
+    - singleline: never
+  no-angle-bracket-type-assertion: false
+  non-literal-fs-path: false
+
+  #Disable function-name, since it requires all-caps in static functions.
+  function-name: false
+  no-redundant-boolean: false
+  mocha-no-side-effect-code: false
+  no-cookies: false
+
+overrides:
+  excludedFiles:
+    test/unit/session_test.ts
