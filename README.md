@@ -1,4 +1,4 @@
-#Runs a telnet chat server
+Runs a telnet chat server
 
 # Requirements
 - node >= 10.16.3
